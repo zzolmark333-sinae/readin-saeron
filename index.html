@@ -1,0 +1,995 @@
+<title>리드인 새론독서국어학원</title>
+<meta name="description" content="바른 독서, 국어 완성 — 초등 독서부터 서·논술형, 중등 내신, 고등 내신·수능 국어까지 읽기의 힘으로 쌓아 올리는 독서·국어 전문 학원">
+<style>
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  :root {
+    --paper: #efe9db;
+    --paper-raised: #f6f1e6;
+    --ink: #262319;
+    --ink-soft: #55503f;
+    --celadon: #3f5b4e;
+    --celadon-deep: #2b4038;
+    --persimmon: #ad502c;
+    --line: #d9d0b8;
+    --line-strong: #c4b89a;
+    --shadow: 0 1px 2px rgba(38, 35, 25, 0.05);
+    --brand-orange: #f39200;
+    --plum: #7a3b63;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1b1912;
+      --paper-raised: #24211a;
+      --ink: #ece5d4;
+      --ink-soft: #b3ab94;
+      --celadon: #86a894;
+      --celadon-deep: #a9c4b3;
+      --persimmon: #d98253;
+      --line: #3a3527;
+      --line-strong: #4b4530;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      --plum: #dd9dc9;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1b1912;
+    --paper-raised: #24211a;
+    --ink: #ece5d4;
+    --ink-soft: #b3ab94;
+    --celadon: #86a894;
+    --celadon-deep: #a9c4b3;
+    --persimmon: #d98253;
+    --line: #3a3527;
+    --line-strong: #4b4530;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --plum: #dd9dc9;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --paper: #efe9db;
+    --paper-raised: #f6f1e6;
+    --ink: #262319;
+    --ink-soft: #55503f;
+    --celadon: #3f5b4e;
+    --celadon-deep: #2b4038;
+    --persimmon: #ad502c;
+    --line: #d9d0b8;
+    --line-strong: #c4b89a;
+    --shadow: 0 1px 2px rgba(38, 35, 25, 0.05);
+    --plum: #7a3b63;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .serif {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+  }
+
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--persimmon); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 56px);
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px clamp(20px, 5vw, 56px);
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    line-height: 1.2;
+  }
+  .brand-logo {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+  .brand .name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--celadon-deep);
+    color: var(--paper-raised);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+  }
+  :root[data-theme="dark"] .nav-cta,
+  @media (prefers-color-scheme: dark) { .nav-cta { color: #17150f; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: clamp(48px, 9vw, 96px) 0 clamp(40px, 7vw, 72px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(28px, 6vw, 64px);
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.2vw, 58px);
+    line-height: 1.22;
+    margin: 0 0 20px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+    animation: riseIn 0.7s ease both;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--celadon);
+  }
+  .hero p.lede {
+    font-size: clamp(15.5px, 1.6vw, 17.5px);
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 28px;
+    animation: riseIn 0.8s ease 0.08s both;
+  }
+  .hero-art {
+    animation: riseIn 0.9s ease 0.1s both;
+  }
+  .duo-illust {
+    display: flex;
+    gap: 14px;
+  }
+  .illust-card {
+    flex: 1;
+    margin: 0;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 14px 14px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .illust-card svg { width: 100%; height: auto; display: block; }
+
+  /* ---------- Flow chain ---------- */
+  .flow-band {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(28px, 5vw, 40px) 0;
+  }
+  .flow-caption {
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .flow-chain {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 6px;
+  }
+  .flow-node {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: clamp(19px, 3vw, 27px);
+    font-weight: 700;
+    padding: 6px 4px;
+  }
+  .flow-arrow {
+    color: var(--persimmon);
+    font-size: 18px;
+    padding: 0 2px;
+  }
+
+  /* ---------- Section heading ---------- */
+  .section {
+    padding: clamp(48px, 8vw, 84px) 0;
+  }
+  .section + .section { border-top: 1px solid var(--line); }
+  .kicker {
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--celadon);
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .section h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: clamp(24px, 3.4vw, 34px);
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .section > .intro {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 36px;
+    font-size: 15.5px;
+  }
+
+  /* ---------- Program pillars ---------- */
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .pillar {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 26px 4px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .pillar-head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pillar .stage {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--persimmon);
+    font-weight: 800;
+  }
+  .pillar h3 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: 21px;
+    margin: 0;
+  }
+  .pillar p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .stage-track {
+    position: relative;
+    height: 4px;
+    width: 140px;
+    border-radius: 2px;
+    background: var(--line-strong);
+    overflow: hidden;
+  }
+  .stage-track span {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    background: var(--celadon);
+    border-radius: 2px;
+  }
+
+  /* ---------- Curriculum ---------- */
+  .curric-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .curric-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .curric-row .label {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-weight: 700;
+    font-size: 16.5px;
+    color: var(--celadon-deep);
+  }
+  .curric-row .label.group-reading {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--plum);
+  }
+  .curric-row .label.special {
+    color: var(--persimmon);
+  }
+  .curric-row .label small {
+    display: block;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag-list span {
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .curric-row p.plain {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .curric-row p.note {
+    margin: 10px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Director ---------- */
+  .director-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+  .director-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 16px;
+  }
+  .director-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .director-role {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--persimmon);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .director-name {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: 26px;
+    margin: 0 0 22px;
+  }
+  .director-group {
+    margin-bottom: 22px;
+  }
+  .director-group:last-child { margin-bottom: 0; }
+  .director-group h4 {
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--celadon-deep);
+    margin: 0 0 10px;
+  }
+  .director-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .director-list li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .director-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--persimmon);
+  }
+
+  /* ---------- Pricing ---------- */
+  .price-table {
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr 120px 160px;
+    gap: 16px;
+    align-items: center;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-row.head {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    padding-bottom: 12px;
+  }
+  .price-row .prog {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .price-row .prog small {
+    display: block;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+    letter-spacing: 0;
+  }
+  .price-row .freq { color: var(--ink-soft); font-size: 14px; }
+  .price-row .amount {
+    font-weight: 700;
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+    color: var(--celadon-deep);
+    text-align: right;
+  }
+  .price-note {
+    margin-top: 18px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .price-note p { margin: 0; }
+  .price-note p + p { margin-top: 6px; }
+
+  /* ---------- Online channels ---------- */
+  .channels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .channel-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .channel-card:hover {
+    border-color: var(--celadon);
+    transform: translateY(-2px);
+  }
+  .channel-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    background: var(--celadon-deep);
+    color: var(--paper-raised);
+  }
+  .channel-card .ctitle {
+    font-weight: 700;
+    font-size: 14.5px;
+    margin: 0 0 2px;
+  }
+  .channel-card .csub {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Closing ---------- */
+  .closing {
+    text-align: center;
+    padding: clamp(56px, 10vw, 100px) 0;
+  }
+  .closing p.big {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: clamp(24px, 4vw, 36px);
+    max-width: 18ch;
+    margin: 0 auto 16px;
+    text-wrap: balance;
+  }
+  .closing p.small {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* ---------- Footer / contact ---------- */
+  footer.site {
+    background: var(--celadon-deep);
+    color: var(--paper-raised);
+  }
+  :root[data-theme="dark"] footer.site,
+  @media (prefers-color-scheme: dark) { footer.site { color: #17150f; } }
+  .foot-inner {
+    padding: clamp(40px, 7vw, 64px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .foot-inner h3 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: clamp(20px, 2.6vw, 26px);
+    margin: 0 0 8px;
+  }
+  .foot-inner p {
+    margin: 0;
+    opacity: 0.82;
+    font-size: 14px;
+  }
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--persimmon);
+    color: #fbf3ea;
+    padding: 14px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
+    .pillar { grid-template-columns: 1fr; gap: 12px; }
+    .stage-track { width: 100%; }
+    .director-card { grid-template-columns: 1fr; }
+    .director-photo { max-width: 220px; margin: 0 auto; }
+    .curric-row { grid-template-columns: 1fr; gap: 8px; }
+    .channels { grid-template-columns: 1fr; }
+    .price-row { grid-template-columns: 1fr 90px 130px; }
+  }
+  @media (max-width: 520px) {
+    .nav-cta span.full { display: none; }
+    .price-row { grid-template-columns: 1fr auto; }
+    .price-row .freq { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero h1, .hero p.lede, .hero-art {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<header class="site">
+  <div class="nav-row">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="-10 -10 880 220" role="img" aria-label="READ IN">
+        <g fill="none" stroke="var(--ink)" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+          <g>
+            <path d="M15,10 L15,190"/>
+            <path d="M15,10 C95,10 112,30 112,58 C112,86 95,100 15,100"/>
+            <path d="M55,100 L125,190"/>
+          </g>
+          <g transform="translate(150,0)">
+            <path d="M15,10 L15,190"/>
+            <path d="M15,10 L110,10"/>
+            <path d="M15,100 L95,100"/>
+            <path d="M15,190 L110,190"/>
+          </g>
+          <g transform="translate(280,0)">
+            <path d="M65,10 L10,190"/>
+            <path d="M65,10 L120,190"/>
+            <path d="M35,130 L95,130"/>
+          </g>
+          <g transform="translate(430,0)">
+            <path d="M15,10 L15,190"/>
+            <path d="M15,10 C100,10 122,55 122,100 C122,145 100,190 15,190"/>
+          </g>
+          <g transform="translate(710,0)">
+            <path d="M15,190 L15,10"/>
+            <path d="M15,10 L120,190"/>
+            <path d="M120,190 L120,10"/>
+          </g>
+        </g>
+        <g transform="translate(570,0) rotate(9 55 100)">
+          <rect x="25" y="10" width="60" height="180" rx="22" fill="var(--brand-orange)"/>
+          <rect x="38" y="45" width="34" height="16" rx="8" fill="#fff"/>
+          <rect x="38" y="75" width="34" height="16" rx="8" fill="#fff"/>
+        </g>
+      </svg>
+      <span class="name">리드인 새론독서국어학원</span>
+    </div>
+    <a class="nav-cta" href="tel:01089998829"><span>📞</span><span class="full">010-8999-8829</span></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>바른 독서, <em>국어 완성</em></h1>
+      <p class="lede">
+        국어 실력의 뿌리는 읽기입니다. 바르게 읽는 아이는 생각이 깊어지고, 깊은 생각은 글이 되고,
+        그 글이 시험장에서 점수가 됩니다. 리드인 새론독서국어학원은 이 흐름을 처음부터 끝까지 설계합니다.
+      </p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="duo-illust">
+        <figure class="illust-card">
+          <svg viewBox="0 0 200 176" fill="none">
+            <defs>
+              <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--celadon)"/>
+                <stop offset="100%" stop-color="var(--celadon-deep)"/>
+              </linearGradient>
+              <linearGradient id="pageGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#efe7d6"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="150" rx="64" ry="8" fill="#000" opacity="0.1"/>
+            <rect x="42" y="26" width="112" height="118" rx="7" fill="url(#coverGrad)"/>
+            <path d="M146,30 C150,32 152,36 152,40 L152,126 C152,130 150,134 146,136 Z" fill="url(#pageGrad)"/>
+            <path d="M146,34 L146,132" stroke="#d9d0b8" stroke-width="1"/>
+            <path d="M141,38 L141,128 M136,40 L136,126" stroke="#d9d0b8" stroke-width="1"/>
+            <rect x="52" y="26" width="8" height="118" fill="var(--celadon-deep)" opacity="0.55"/>
+            <rect x="72" y="66" width="52" height="7" rx="3.5" fill="var(--paper-raised)" opacity="0.9"/>
+            <rect x="72" y="82" width="34" height="7" rx="3.5" fill="var(--paper-raised)" opacity="0.65"/>
+            <path d="M120,26 L120,64 L112,56 L104,64 L104,26 Z" fill="var(--persimmon)"/>
+          </svg>
+        </figure>
+        <figure class="illust-card">
+          <svg viewBox="0 0 200 176" fill="none">
+            <defs>
+              <linearGradient id="pencilBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--persimmon)"/>
+                <stop offset="100%" stop-color="#8a3d1f"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="150" rx="64" ry="8" fill="#000" opacity="0.1"/>
+            <g transform="rotate(-3 100 90)">
+              <rect x="38" y="30" width="124" height="112" rx="6" fill="#ffffff"/>
+              <rect x="38" y="30" width="124" height="112" rx="6" fill="none" stroke="#d9d0b8" stroke-width="1.5"/>
+              <line x1="52" y1="52" x2="150" y2="52" stroke="#e4dcc8" stroke-width="2"/>
+              <line x1="52" y1="68" x2="150" y2="68" stroke="#e4dcc8" stroke-width="2"/>
+              <line x1="52" y1="84" x2="150" y2="84" stroke="#e4dcc8" stroke-width="2"/>
+              <line x1="52" y1="100" x2="150" y2="100" stroke="#e4dcc8" stroke-width="2"/>
+              <line x1="52" y1="116" x2="150" y2="116" stroke="#e4dcc8" stroke-width="2"/>
+              <circle cx="38" cy="44" r="4" fill="var(--paper)" stroke="#c4b89a" stroke-width="1.5"/>
+              <circle cx="38" cy="66" r="4" fill="var(--paper)" stroke="#c4b89a" stroke-width="1.5"/>
+              <circle cx="38" cy="88" r="4" fill="var(--paper)" stroke="#c4b89a" stroke-width="1.5"/>
+              <circle cx="38" cy="110" r="4" fill="var(--paper)" stroke="#c4b89a" stroke-width="1.5"/>
+              <circle cx="38" cy="132" r="4" fill="var(--paper)" stroke="#c4b89a" stroke-width="1.5"/>
+              <path d="M60 65 C 70 60, 80 60, 88 66" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M60 81 C 74 76, 92 84, 108 78" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M60 97 C 72 93, 84 100, 96 95" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <g transform="rotate(38 118 108)">
+              <rect x="90" y="40" width="18" height="100" rx="3" fill="url(#pencilBody)"/>
+              <rect x="90" y="40" width="18" height="12" fill="#d9d0b8"/>
+              <path d="M90,140 L108,140 L99,158 Z" fill="#e7d3b0"/>
+              <path d="M96,152 L102,152 L99,158 Z" fill="#2b271d"/>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="flow-band">
+    <p class="flow-caption">읽기라는 하나의 힘이 쌓이는 방식</p>
+    <div class="flow-chain">
+      <span class="flow-node">읽기</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-node">사고력</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-node">쓰기</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-node">국어력</span>
+    </div>
+  </div>
+
+  <section class="section" id="programs">
+    <p class="kicker">Programs</p>
+    <h2>초등 독서에서 고등 수능까지, 하나의 흐름</h2>
+    <p class="intro">
+      초등 독서에서 시작해 서·논술형 대비, 중고등 내신, 모의고사·수능까지 —
+      읽기라는 하나의 힘을 기초로 쌓아 올리는 독서·국어 전문 학원입니다.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-head">
+          <span class="stage">초등</span>
+          <h3>독서</h3>
+          <div class="stage-track"><span style="width:20%"></span></div>
+        </div>
+        <p>독서진단과 도서지수 기반의 체계적 독서 관리, 낭독과 메타인지 읽기 전략으로 읽기 독립을 완성합니다. 많이 읽히는 것이 아니라 바르게 읽히는 것, 그것이 시작입니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head">
+          <span class="stage">초·중등</span>
+          <h3>서·논술형 대비</h3>
+          <div class="stage-track"><span style="width:40%"></span></div>
+        </div>
+        <p>읽은 것을 생각으로, 생각을 글로. 단원 목표를 겨냥한 전략적 쓰기 훈련과 조건에 맞는 전략적 글쓰기로, 2028 대입 개편과 학교 서·논술형 평가 확대에도 흔들리지 않는 표현력을 기릅니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head">
+          <span class="stage">중고등</span>
+          <h3>중고등 내신</h3>
+          <div class="stage-track"><span style="width:60%"></span></div>
+        </div>
+        <p>시험범위를 완벽히 짚어내는 학습법으로 학교 국어 수업 핵심을 그대로 반영하고, 학습지 분석·예상문제·학습 과정 리포트까지 챙깁니다. 학생 1:1 온·오프라인 코칭으로 우리 동네와 소속 학교에 맞춘 지도를 제공합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head">
+          <span class="stage">고등</span>
+          <h3>모의고사·수능</h3>
+          <div class="stage-track"><span style="width:80%"></span></div>
+        </div>
+        <p>읽기 지속 훈련, 비문학 구조분석, 정보처리 관리로 문해력을 키웁니다. 고등 어휘 학습을 지속함으로 지문과 선지 이해도를 뾰족하게 제련합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head">
+          <span class="stage">초등고학년~고등</span>
+          <h3>문해력PT</h3>
+          <div class="stage-track"><span style="width:100%"></span></div>
+        </div>
+        <p>문해력PT로 학교 내신에 매몰되지 않고, 넓게 국어 기반 문해력으로 실전 문제를 푸는 능력을 기릅니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="curriculum">
+    <p class="kicker">Curriculum</p>
+    <h2>세부 훈련 프로그램</h2>
+    <p class="intro">읽기·독해·쓰기를 나누어 보면, 매주 이렇게 채워집니다.</p>
+    <div class="curric-list">
+      <div class="curric-row">
+        <div class="label group-reading">베이직<small>매 수업 공통</small></div>
+        <p class="plain">리드인 독서 + 글쓰기</p>
+      </div>
+      <div class="curric-row">
+        <div class="label group-reading">초등 독서<small>영역·교과 연계</small></div>
+        <div>
+          <div class="tag-list">
+            <span>문학·인문·사회·과학·예술·진로 영역별 도서</span>
+            <span>교과연계도서</span>
+            <span>독서진단</span>
+          </div>
+          <p class="note">감상 글쓰기 + 갈래별 글쓰기 + 요약훈련</p>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label group-reading">중등 독서<small>학년별 소설 연계</small></div>
+        <div>
+          <div class="tag-list">
+            <span>영역별 도서</span>
+            <span>중1~3 현대소설·고전소설·고등 근대소설</span>
+            <span>독서진단</span>
+          </div>
+          <p class="note">서논술형·수행평가 대비 글쓰기 → 읽기속도·습관·독법 개선과 글쓰기 성장</p>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label">단문독해훈련<small>독서와 학습의 연결고리</small></div>
+        <div class="tag-list">
+          <span>읽기 트레이닝</span>
+          <span>독해 트레이닝</span>
+          <span>듣기 트레이닝</span>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label">자기주도학습법 훈련<small>읽기로 쌓는 공부 체력</small></div>
+        <div class="tag-list">
+          <span>한국사</span>
+          <span>비문학 트레이닝</span>
+          <span>세계사 흐름 읽기</span>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label">서·논술형 대비<small>생각을 글로</small></div>
+        <div class="tag-list">
+          <span>비문학 구조분석과 요약</span>
+          <span>읽쓰문해력</span>
+          <span>주제·논술 (월 1회)</span>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label">문해력 전반과 어휘력<small>전 학년 공통</small></div>
+        <div class="tag-list">
+          <span>전 학년 어휘학습</span>
+          <span>도서 연계 어휘학습</span>
+          <span>읽쓰문해력 어휘훈련</span>
+        </div>
+      </div>
+      <div class="curric-row">
+        <div class="label special">방학특강<small>계절 학기</small></div>
+        <div>
+          <div class="tag-list">
+            <span>초등 글쓰기</span>
+            <span>중등 글쓰기</span>
+            <span>초5~6 중등예비 문법</span>
+            <span>중1~3 중등 전체 문법</span>
+            <span>중3 고전시가·고전소설 특강</span>
+            <span>중1~3 현대소설 특강</span>
+            <span>초등 한국사 특강</span>
+            <span>세계사 특강</span>
+          </div>
+          <p class="note">재원생 수요조사 후 상시 개설 · 중1~3 다음 학기 국어 예습 1:1 특강도 진행 · 그룹수업·개별수업 모두 가능</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="director">
+    <p class="kicker">Director</p>
+    <h2>원장 소개</h2>
+    <div class="director-card">
+      <div class="director-photo">사진 준비 중</div>
+      <div>
+        <p class="director-role">독서토론코칭전문가</p>
+        <h3 class="director-name">최신애</h3>
+        <div class="director-group">
+          <h4>약력</h4>
+          <ul class="director-list">
+            <li>입시 국어 전문 강사</li>
+            <li>독서 토론 강사</li>
+            <li>상담워크숍 전문 강사</li>
+            <li>저서 출간</li>
+            <li>인성 북클럽 운영</li>
+            <li>상담·발제문 코칭</li>
+            <li>홈스쿨 클럽 운영</li>
+          </ul>
+        </div>
+        <div class="director-group">
+          <h4>주요 경력</h4>
+          <ul class="director-list">
+            <li>현) 새론독서국어학원 원장</li>
+            <li>읽기독립 연구소 원장</li>
+            <li>전인적교육상담교사협의회 회장</li>
+            <li>서울사립초등 전문 강사</li>
+            <li>대교눈높이전문가협의회 회장</li>
+            <li>지작북스 대표</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <p class="kicker">Tuition</p>
+    <h2>수강료 안내</h2>
+    <p class="intro">학년별 수강료입니다. 문해력PT와 각종 트레이닝은 별도로 문의해 주세요.</p>
+    <div class="price-table">
+      <div class="price-row head">
+        <span>과정</span>
+        <span>수업</span>
+        <span>수강료</span>
+      </div>
+      <div class="price-row">
+        <div class="prog">초등</div>
+        <span class="freq">주 3회</span>
+        <span class="amount">150,000원</span>
+      </div>
+      <div class="price-row">
+        <div class="prog">중등</div>
+        <span class="freq">주 3회</span>
+        <span class="amount">170,000원</span>
+      </div>
+      <div class="price-row">
+        <div class="prog">고등반<small>클리닉 자율등원</small></div>
+        <span class="freq">주 2회</span>
+        <span class="amount">230,000원</span>
+      </div>
+      <div class="price-row">
+        <div class="prog">문해력PT · 각종 트레이닝<small>수업별 추가 발생</small></div>
+        <span class="freq">추가 발생</span>
+        <span class="amount">개별문의</span>
+      </div>
+    </div>
+    <div class="price-note">
+      <p>※ 문해력PT 및 각종 트레이닝은 진행 상황에 따라 별도 비용이 추가될 수 있습니다. 자세한 사항은 전화로 문의해 주세요.</p>
+      <p>* 성장 속도를 위한 클리닉을 상시 실행합니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="channels">
+    <p class="kicker">Connect</p>
+    <h2>온라인에서도 만나보세요</h2>
+    <p class="intro">학원 소식과 후기, 상담은 아래 채널에서도 확인하실 수 있습니다.</p>
+    <div class="channels">
+      <a class="channel-card" href="#" target="_blank" rel="noopener">
+        <span class="channel-icon">📍</span>
+        <span>
+          <span class="ctitle">네이버 스마트플레이스</span><br>
+          <span class="csub">위치·리뷰 보기</span>
+        </span>
+      </a>
+      <a class="channel-card" href="#" target="_blank" rel="noopener">
+        <span class="channel-icon">✍️</span>
+        <span>
+          <span class="ctitle">블로그</span><br>
+          <span class="csub">학습 후기·소식</span>
+        </span>
+      </a>
+      <a class="channel-card" href="#" target="_blank" rel="noopener">
+        <span class="channel-icon">💬</span>
+        <span>
+          <span class="ctitle">채널 상담</span><br>
+          <span class="csub">문의하기</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="closing">
+    <p class="big">읽는 아이가<br>결국 이깁니다.</p>
+    <p class="small">리드인 새론독서국어학원이 그 길을 함께 걷겠습니다.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div>
+      <h3>상담 및 문의</h3>
+      <p>전화로 편하게 문의해 주세요.</p>
+    </div>
+    <a class="call-btn" href="tel:01089998829">📞 010-8999-8829</a>
+  </div>
+</footer>
