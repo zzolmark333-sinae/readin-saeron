@@ -638,21 +638,29 @@
     animation: pulseGlow 2.6s ease-in-out infinite;
   }
 
+  @media (max-width: 900px) {
+    .director-card { grid-template-columns: 170px 1fr 1fr; gap: 22px; }
+  }
   @media (max-width: 880px) {
     .hero { grid-template-columns: 1fr; }
     .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
     .pillar { grid-template-columns: 1fr; gap: 12px; }
     .stage-track { width: 100%; }
-    .director-card { grid-template-columns: 1fr; }
-    .director-photo { max-width: 220px; margin: 0 auto; }
     .curric-row { grid-template-columns: 1fr; gap: 8px; }
     .channels { grid-template-columns: 1fr; }
     .price-row { grid-template-columns: 1fr 90px 130px; }
+  }
+  @media (max-width: 620px) {
+    .director-card { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .director-photo { grid-column: 1 / -1; max-width: 200px; margin: 0 auto; }
   }
   @media (max-width: 520px) {
     .nav-cta span.full { display: none; }
     .price-row { grid-template-columns: 1fr auto; }
     .price-row .freq { display: none; }
+  }
+  @media (max-width: 400px) {
+    .director-card { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
