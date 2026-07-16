@@ -696,8 +696,46 @@
     border: 1px dashed color-mix(in srgb, var(--paper-raised) 40%, transparent);
     cursor: default;
   }
+  .diag-btn.soon { cursor: pointer; }
   .diag-title { font-size: 17px; font-weight: 800; }
   .diag-sub { font-size: 13px; opacity: 0.92; }
+
+  .simhwa {
+    margin: 20px auto 0;
+    max-width: 620px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 16px;
+    padding: 22px;
+    text-align: left;
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+  }
+  .simhwa-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .simhwa h3 { font-family:"Noto Serif KR","Nanum Myeongjo",serif; font-size: 16px; margin: 0; color: var(--ink); }
+  .simhwa-desc { font-size: 12.5px; color: var(--ink-soft); margin: 4px 0 14px; }
+  .simhwa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .simhwa-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: border-color 0.12s ease, transform 0.12s ease;
+  }
+  .simhwa-item:hover { border-color: var(--celadon); transform: translateY(-1px); }
+  .simhwa-item .lv { display: block; }
+  .simhwa-item .lv small { display:block; font-weight:500; font-size:11px; color:var(--ink-soft); margin-top:2px; }
+  .simhwa-item .dl { font-size: 12px; color: var(--celadon-deep); white-space: nowrap; }
+  .simhwa-note { font-size: 11.5px; color: var(--ink-soft); margin: 12px 0 0; }
+  @media (max-width: 480px) { .simhwa-grid { grid-template-columns: 1fr; } }
+
   .diag-secondary { margin: 16px 0 0; }
   .diag-secondary a {
     color: color-mix(in srgb, var(--paper-raised) 82%, transparent);
@@ -1551,10 +1589,24 @@
           <span class="diag-title">기본 검사 시작</span>
           <span class="diag-sub">문해력 자가 체크리스트 (5분) →</span>
         </button>
-        <span class="diag-btn soon" aria-disabled="true">
+        <button type="button" class="diag-btn soon" id="startSimhwa">
           <span class="diag-title">심화 검사</span>
-          <span class="diag-sub">준비 중입니다</span>
-        </span>
+          <span class="diag-sub">학년별 실전 문제지 (PDF) →</span>
+        </button>
+      </div>
+      <div class="simhwa" id="simhwa" hidden>
+        <div class="simhwa-top">
+          <h3>심화 문해력 검사 · 학년별 문제지</h3>
+          <button type="button" class="quiz-close" id="simhwaClose" aria-label="닫기">✕</button>
+        </div>
+        <p class="simhwa-desc">지문을 읽고 푸는 실전형 검사입니다. 학년을 선택해 문제지를 내려받아 풀어 보세요. 채점 후 방문 진단으로 정확한 결과를 확인하실 수 있습니다.</p>
+        <div class="simhwa-grid">
+          <a class="simhwa-item" href="simhwa-cho12.pdf" download="심화문해력검사_초1-2.pdf" target="_blank" rel="noopener"><span class="lv">초등 1~2학년<small>25분 · 100점</small></span><span class="dl">문제지 ↓</span></a>
+          <a class="simhwa-item" href="simhwa-cho34.pdf" download="심화문해력검사_초3-4.pdf" target="_blank" rel="noopener"><span class="lv">초등 3~4학년<small>35분 · 100점</small></span><span class="dl">문제지 ↓</span></a>
+          <a class="simhwa-item" href="simhwa-cho56.pdf" download="심화문해력검사_초5-6.pdf" target="_blank" rel="noopener"><span class="lv">초등 5~6학년<small>40분 · 100점</small></span><span class="dl">문제지 ↓</span></a>
+          <a class="simhwa-item" href="simhwa-jung.pdf" download="심화문해력검사_중1-3.pdf" target="_blank" rel="noopener"><span class="lv">중학 1~3학년<small>45분 · 100점</small></span><span class="dl">문제지 ↓</span></a>
+        </div>
+        <p class="simhwa-note">※ 정답·해설과 총점별 문해력 해석은 학원에서 채점과 함께 안내해 드립니다. ☎ 010-8999-8829</p>
       </div>
       <p class="diag-secondary"><a href="https://m.blog.naver.com/zzolmark" target="_blank" rel="noopener noreferrer">또는 블로그에서 자세히 보기 →</a></p>
       <div class="quiz" id="quiz" hidden>
@@ -1854,6 +1906,19 @@
 
     startBtn.addEventListener('click', start);
     closeBtn.addEventListener('click', function () { quiz.hidden = true; });
+  })();
+
+  /* ---------- Advanced test grade selector ---------- */
+  (function () {
+    var btn = document.getElementById('startSimhwa');
+    var panel = document.getElementById('simhwa');
+    var close = document.getElementById('simhwaClose');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function () {
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    if (close) close.addEventListener('click', function () { panel.hidden = true; });
   })();
 })();
 </script>
