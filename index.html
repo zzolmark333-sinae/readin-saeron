@@ -690,13 +690,16 @@
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   }
-  .diag-btn.soon {
-    background: color-mix(in srgb, var(--paper-raised) 14%, transparent);
-    color: color-mix(in srgb, var(--paper-raised) 70%, transparent);
-    border: 1px dashed color-mix(in srgb, var(--paper-raised) 40%, transparent);
-    cursor: default;
+  .diag-btn.alt {
+    background: var(--paper-raised);
+    color: var(--celadon-deep);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .diag-btn.soon { cursor: pointer; }
+  .diag-btn.alt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  }
   .diag-title { font-size: 17px; font-weight: 800; }
   .diag-sub { font-size: 13px; opacity: 0.92; }
 
@@ -1589,7 +1592,7 @@
           <span class="diag-title">기본 검사 시작</span>
           <span class="diag-sub">문해력 자가 체크리스트 (5분) →</span>
         </button>
-        <button type="button" class="diag-btn soon" id="startSimhwa">
+        <button type="button" class="diag-btn alt" id="startSimhwa">
           <span class="diag-title">심화 검사</span>
           <span class="diag-sub">학년별 실전 문제지 (PDF) →</span>
         </button>
