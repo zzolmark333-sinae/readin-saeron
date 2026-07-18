@@ -844,6 +844,7 @@
   .quiz-area-num { text-align: right; font-variant-numeric: tabular-nums; }
   .quiz-tip { font-size: 13.5px; color: var(--persimmon); margin: 0 0 20px; }
   .quiz-tip b { font-weight: 800; }
+  .quiz-cta-lead { font-size: 13.5px; color: var(--ink-soft); margin: 4px 0 12px; }
   .quiz-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .quiz-cta-btn {
     display: inline-flex;
@@ -1588,7 +1589,7 @@
       <div class="price-row">
         <div class="prog">고등반<small>클리닉 자율등원</small></div>
         <span class="freq">주 2회</span>
-        <span class="amount">별도문의</span>
+        <span class="amount">개별문의</span>
       </div>
       <div class="price-row">
         <div class="prog">문해력PT · 각종 트레이닝<small>수업별 추가 발생</small></div>
@@ -1838,9 +1839,10 @@
         '<p class="quiz-desc">' + esc(b.d) + '</p>' +
         '<div class="quiz-areas">' + areasHtml + '</div>' +
         '<p class="quiz-tip">가장 먼저 도와줄 영역: <b>' + esc(AREAS[minIdx]) + '</b></p>' +
+        '<p class="quiz-cta-lead">무료 상담으로 정확한 방향을 확인해 보세요</p>' +
         '<div class="quiz-cta">' +
-        '<a class="quiz-cta-btn primary" href="tel:01089998829">📞 무료 상담 신청</a>' +
-        '<a class="quiz-cta-btn kakao" href="https://pf.kakao.com/_xhzlmn" target="_blank" rel="noopener noreferrer">카카오 채널 문의</a>' +
+        '<a class="quiz-cta-btn kakao" href="https://pf.kakao.com/_xhzlmn" target="_blank" rel="noopener noreferrer">💬 카카오 채널로 상담 신청</a>' +
+        '<a class="quiz-cta-btn primary" href="tel:01089998829">📞 010-8999-8829</a>' +
         '<button type="button" class="quiz-cta-btn ghost" id="quizRetry">다시 하기</button>' +
         '</div>' +
         '<p style="font-size:12px;color:var(--ink-soft);margin:16px 0 0">※ 부모 관찰 기반 자가 체크리스트입니다. 정확한 수준은 방문 독서진단으로 확인하세요.</p>' +
