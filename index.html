@@ -145,18 +145,22 @@
   .brand {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    line-height: 1.2;
+    gap: 3px;
+    line-height: 1.15;
   }
-  .brand-logo {
-    height: 22px;
-    width: auto;
-    display: block;
-  }
-  .brand .name {
-    font-size: 17px;
-    font-weight: 700;
+  .brand-word {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    font-size: 25px;
+    font-weight: 800;
     letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand-word .edu { color: var(--brand-orange); }
+  .brand .name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
   }
   .nav-cta {
     display: inline-flex;
@@ -1085,41 +1089,8 @@
 <header class="site">
   <div class="nav-row">
     <div class="brand">
-      <svg class="brand-logo" viewBox="-10 -10 880 220" role="img" aria-label="READ IN">
-        <g fill="none" stroke="var(--ink)" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
-          <g>
-            <path d="M15,10 L15,190"/>
-            <path d="M15,10 C95,10 112,30 112,58 C112,86 95,100 15,100"/>
-            <path d="M55,100 L125,190"/>
-          </g>
-          <g transform="translate(150,0)">
-            <path d="M15,10 L15,190"/>
-            <path d="M15,10 L110,10"/>
-            <path d="M15,100 L95,100"/>
-            <path d="M15,190 L110,190"/>
-          </g>
-          <g transform="translate(280,0)">
-            <path d="M65,10 L10,190"/>
-            <path d="M65,10 L120,190"/>
-            <path d="M35,130 L95,130"/>
-          </g>
-          <g transform="translate(430,0)">
-            <path d="M15,10 L15,190"/>
-            <path d="M15,10 C100,10 122,55 122,100 C122,145 100,190 15,190"/>
-          </g>
-          <g transform="translate(710,0)">
-            <path d="M15,190 L15,10"/>
-            <path d="M15,10 L120,190"/>
-            <path d="M120,190 L120,10"/>
-          </g>
-        </g>
-        <g transform="translate(570,0) rotate(9 55 100)">
-          <rect x="25" y="10" width="60" height="180" rx="22" fill="var(--brand-orange)"/>
-          <rect x="38" y="45" width="34" height="16" rx="8" fill="#fff"/>
-          <rect x="38" y="75" width="34" height="16" rx="8" fill="#fff"/>
-        </g>
-      </svg>
-      <span class="name">리드인 새론독서국어학원</span>
+      <span class="brand-word">새론<span class="edu">에듀</span></span>
+      <span class="name">새론독서국어</span>
     </div>
     <a class="nav-cta" href="tel:01089998829"><span>📞</span><span class="full">010-8999-8829</span></a>
   </div>
