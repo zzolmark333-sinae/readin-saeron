@@ -541,6 +541,64 @@
     text-decoration: none;
   }
 
+  /* ---------- FAQ ---------- */
+  .faq-source {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 28px;
+    padding: 12px 16px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .faq-source b { color: var(--ink); }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper-raised);
+    overflow: hidden;
+  }
+  .faq-item summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .q-mark { color: var(--persimmon); font-weight: 800; margin-right: 4px; }
+  .faq-item summary .chev {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--celadon-deep);
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary .chev { transform: rotate(45deg); }
+  .faq-answer {
+    padding: 0 20px 18px 20px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+  .faq-answer b { color: var(--celadon-deep); }
+
   /* ---------- Reviews ---------- */
   .review-source {
     display: inline-flex;
@@ -1406,6 +1464,46 @@
         <p class="book-meta">최신애 저 · SISO · <span class="book-rating">★ 9.8</span> (예스24 리뷰 44)</p>
         <a class="book-link" href="https://www.yes24.com/product/goods/102350054" target="_blank" rel="noopener noreferrer">예스24에서 보기 →</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="faq">
+    <p class="kicker">Q&amp;A</p>
+    <h2>학부모가 가장 많이 묻는 것들</h2>
+    <p class="faq-source">📖 원장 저서 <b>&lt;우리아이 읽기독립&gt;</b>의 긍정적 독서지도법과 3S(Short·Share·Steady) 읽기훈련을 바탕으로 답합니다.</p>
+    <div class="faq-list reveal-group">
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 아이가 책을 펴기 싫어해요. 억지로라도 읽혀야 할까요?</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">억지로 읽히면 ‘독서 = 하기 싫은 숙제’로 각인되기 쉽습니다. <b>Short(짧게)</b> 원칙대로, 하루 5~10분이라도 아이 수준보다 살짝 쉬운 책부터 짧게 시작해 “다 읽었다”는 성취감을 먼저 쌓아 주세요. 분량보다 완독 경험이 습관을 만듭니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 그림책만 보고 글밥 있는 책(문고)으로 안 넘어가요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">글밥이 갑자기 늘어나는 책으로 건너뛰면 아이는 부담을 느껴 다시 그림책으로 돌아갑니다. 그림 비중이 서서히 줄어드는 징검다리 책부터 <b>도서지수에 맞춰 단계적으로</b> 늘려야 합니다. 학원에서 독서진단으로 정확한 단계를 확인해 드릴 수 있어요.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 책은 많이 읽는데 내용을 이해 못 하는 것 같아요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">‘많이’ 읽는 것과 ‘바르게’ 읽는 것은 다릅니다. 눈으로 빠르게 훑는 습관이 들면 이해 없이 페이지만 넘기게 됩니다. <b>낭독(소리 내어 읽기)</b>은 스스로 이해했는지 점검하게 해 주는 가장 쉬운 방법이에요. 일주일에 몇 번이라도 한 문단을 소리 내어 읽혀 보세요.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 책을 읽고 나면 내용을 금방 잊어버려요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer"><b>Share(나누기)</b> 단계가 빠졌을 가능성이 큽니다. 읽고 끝내지 않고 “가장 재미있던 장면이 뭐야?”처럼 짧게 이야기 나누는 것만으로도 기억에 남는 정도가 크게 달라집니다. 완벽한 독후감이 아니어도 괜찮습니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 책은 좋아하는데 국어 성적은 잘 안 올라요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">흥미 위주의 독서와 학습을 위한 독해는 훈련 방식이 다릅니다. 중심 문장 찾기, 인물의 마음 추론하기, 글의 구조 파악하기처럼 <b>메타인지 읽기 전략</b>을 별도로 훈련해야 독서량이 성적으로 이어집니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 휴대폰·영상만 보고 책은 거들떠도 안 봐요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">한 번에 끊게 하려 하면 반발만 커집니다. 짧은 독서 시간을 정해진 루틴(자기 전 10분 등)으로 만들고, <b>Steady(꾸준히)</b> 지켜지는 시간 자체를 먼저 확보하세요. 습관은 의지가 아니라 반복된 환경에서 만들어집니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 독서 습관은 몇 살부터 잡아 주는 게 좋을까요?</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">이르면 이를수록 좋지만, 지금 시작해도 늦지 않습니다. 중요한 건 나이가 아니라 <b>지금 아이 수준에 맞는 책과 방법</b>을 찾는 것입니다. 학년이 높아도 독서진단을 통해 맞는 단계부터 다시 쌓아 올리면 됩니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span><span class="q-mark">Q.</span> 다양한 분야의 책을 골고루 읽히고 싶은데 방법을 모르겠어요.</span><span class="chev">＋</span></summary>
+        <div class="faq-answer">아이가 좋아하는 분야에만 머무르면 편식이 생깁니다. 문학·인문·사회·과학·예술·진로 등 <b>영역별 도서와 교과연계도서</b>를 함께 배치해 자연스럽게 폭을 넓혀 주는 것이 효과적입니다.</div>
+      </details>
     </div>
   </section>
 
