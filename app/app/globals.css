@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1d2433;
+  --color-paper: #fafbf9;
+  --color-grid: #4f8a6b;
+  --color-grid-soft: #d5e3da;
+  --color-muted: #5b6472;
+  --color-warn: #b42318;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-serif: "Gowun Batang", "Nanum Myeongjo", serif;
+}
+
+html, body { background: var(--color-paper); color: var(--color-ink); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; word-break: keep-all; }
+
+:focus-visible { outline: 2px solid var(--color-grid); outline-offset: 2px; }
+
+/* 원고지 칸: 랜딩 제목 한 곳에만 사용 */
+.manuscript { display: flex; flex-wrap: wrap; border-top: 1.5px solid var(--color-grid); border-left: 1.5px solid var(--color-grid); width: fit-content; }
+.manuscript span {
+  width: clamp(2.6rem, 9vw, 4.2rem); aspect-ratio: 1; display: grid; place-items: center;
+  border-right: 1.5px solid var(--color-grid); border-bottom: 1.5px solid var(--color-grid);
+  font-family: var(--font-serif); font-size: clamp(1.5rem, 5.4vw, 2.5rem); font-weight: 700;
+}
+.manuscript span.blank { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--color-grid-soft) 6px 7px); }
+
+.field { display: grid; gap: .4rem; }
+.field label { font-size: .9rem; font-weight: 600; }
+.field input, .field textarea {
+  border: 1px solid #c9d1cc; border-radius: .5rem; padding: .75rem .85rem; background: #fff; font-size: 1rem;
+}
+.field input:focus, .field textarea:focus { border-color: var(--color-grid); outline: none; box-shadow: 0 0 0 3px var(--color-grid-soft); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3rem; padding: 0 1.25rem; border-radius: .6rem; font-weight: 700; }
+.btn-ink { background: var(--color-ink); color: #fff; }
+.btn-line { border: 1px solid #c9d1cc; background: #fff; }
+.btn:disabled { opacity: .5; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
