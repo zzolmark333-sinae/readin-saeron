@@ -1,35 +1,51 @@
-# 원장 글방 — 1단계 (로그인 + 승인 게이트)
+# 원장 글방 (혼자 쓰는 버전)
 
-## 1. Supabase
-1. 새 프로젝트 생성
-2. SQL Editor → `supabase/schema.sql` 전체 붙여넣기 → Run
-3. Authentication → URL Configuration
-   - Site URL: `http://localhost:3000` (배포 후 Vercel 주소로 변경)
-   - Redirect URLs: `http://localhost:3000/auth/callback`, `https://<vercel주소>/auth/callback`
-4. Authentication → Providers
-   - Google: Google Cloud Console에서 OAuth 클라이언트 생성,
-     승인된 리디렉션 URI = `https://<프로젝트>.supabase.co/auth/v1/callback`, Client ID/Secret 입력
-   - Kakao(선택, 나중에 가능): developers.kakao.com 앱 생성 → 카카오 로그인 ON →
-     Redirect URI = 위와 같은 Supabase 주소, REST API 키 / Client Secret 입력
-     ※ 이메일 동의 항목은 비즈 앱 전환이 필요할 수 있음
-5. Settings → API에서 URL, anon key, service_role key 복사
+원장님이 질문에 답하면 네이버 블로그 글 6편을 만들어 주고, 그 뒤로는 메모를 재료로 정해진 요일마다 글을 자동으로 써 두는 앱이에요.
+로그인, 회원 승인, 데이터베이스가 없어요. 내 컴퓨터에서 켜 두고 혼자 쓰면 돼요.
 
-## 2. 로컬 실행
-```bash
-npm install
-cp .env.example .env.local   # 윈도우: copy .env.example .env.local
-# .env.local에 키 입력, ADMIN_EMAILS에 원장님 로그인 이메일
-npm run dev
-```
-http://localhost:3000 접속
+## 처음 한 번만
 
-## 3. 테스트 순서
-1. 원장님 계정(ADMIN_EMAILS)으로 로그인 → `/admin` 회원 관리로 이동되면 성공
-2. 다른 구글 계정(시크릿 창)으로 로그인 → 가입 신청 → "승인을 기다리고 있어요"
-3. 원장님 창에서 승인 → 다른 계정 새로고침 → `/write` 열리면 성공
-4. 승인 전 계정으로 `/write`, `/admin` 주소 직접 입력 → 막히면 성공
+1. **Node.js 설치**: https://nodejs.org 에서 LTS 버전을 설치해요.
+2. **Claude API 키 만들기**: https://console.anthropic.com 에 가입하고, Billing에서 결제 수단을 등록한 뒤 API Keys에서 키를 만들어요. `sk-ant-...`로 시작해요.
+3. **내려받고 설치하기**: 명령 프롬프트(맥은 터미널)에서 아래를 입력해요.
+   ```
+   git clone https://github.com/zzolmark333-sinae/readin-saeron.git
+   cd readin-saeron
+   git checkout claude/project-setup-local-run-58g970
+   cd app
+   npm install
+   copy .env.example .env.local
+   ```
+   맥은 마지막 줄을 `cp .env.example .env.local`로 바꿔요.
+4. `app` 폴더의 `.env.local`을 메모장으로 열고 `ANTHROPIC_API_KEY=` 뒤에 키를 붙여 넣어요.
 
-## 4. Vercel 배포
-1. GitHub에 올리기 → Vercel에서 Import
-2. Environment Variables에 `.env.local` 값 그대로 입력
-3. 배포 주소를 Supabase Site URL·Redirect URLs에 추가
+## 매번 켜는 법
+
+`app` 폴더에서 `npm run dev`를 입력하고, 브라우저에서 http://localhost:3000 을 열어요.
+끄려면 명령 창에서 `Ctrl + C`를 눌러요.
+
+## 쓰는 순서
+
+1. **프로필**: 학원 정보가 미리 채워져 있어요. 지역(동 단위)만 넣고 저장하면 돼요.
+2. **6편 쓰기**: 편마다 질문에 답하고(자동 저장) "완성본 만들기"를 누르면 1~2분 뒤 글이 나와요.
+3. **글**: 제목 후보 3개, 본문, 사진 추천이 보여요. "본문 복사"로 네이버에 붙여 넣거나 "워드 받기"로 저장해요. 올린 뒤에는 "발행 완료"를 눌러요.
+4. **메모**: 수업 장면, 특별 행사, 글 방향을 짧게 남겨 두면 다음 연재 글의 재료가 돼요.
+5. **자동 연재**: 설정에서 고른 요일(기본 월·수·금) 새벽 5시 이후에 앱이 켜져 있으면 글을 한 편 써 둬요.
+   - 소재 순서: 마감 전 행사 → 글 방향 메모 → 수업 장면 메모 → 메모가 없으면 시기별 글감
+   - 컴퓨터가 꺼져 있었다면, 그날 앱을 켤 때 따라잡아 써요.
+   - 발행하지 않은 글이 3편 쌓이면 잠시 멈춰요.
+   - 기다리지 않고 바로 쓰려면 "글" 화면의 "지금 다음 연재 글 만들기"를 눌러요.
+
+## 파일 위치
+
+| 무엇 | 어디 |
+|---|---|
+| 내 답변·글·메모 | `app/data/db.json` (내 컴퓨터에만 있고 GitHub에 올라가지 않아요. 가끔 복사해 백업해 두세요.) |
+| 학원 참고 지식 | `app/knowledge/academy.md` (홈페이지 내용을 정리해 뒀어요. 글을 쓸 때 사실 자료로 쓰여요. 고치면 바로 반영돼요.) |
+| 질문 목록 | `app/lib/questions.ts` |
+| 시기별 글감 | `app/lib/topics.ts` |
+| 글쓰기 규칙(프롬프트) | `app/lib/generate.ts` |
+
+## 비용
+
+글 한 편에 약 수십 원에서 100원 안팎이 들어요(설계서 기준 약 70원). 이번 달 사용량은 설정 화면에서 볼 수 있고, 정확한 요금은 console.anthropic.com의 Usage에서 확인해요.
